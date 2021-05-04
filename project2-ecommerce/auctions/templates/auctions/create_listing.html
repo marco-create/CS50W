@@ -1,0 +1,22 @@
+{% extends 'auctions/layout.html' %}
+
+{% block body %}
+<h2>Create a new listing</h2>
+
+{% if not_an_user %}
+    <div class="comment-alert-wrap">
+        <div class="comment-alert-text">
+            <span><a href="{% url 'register' %}">Sign in</a> or <a href="{% url 'login' %}">Log in</a> to create an auction!</span>
+        </div>
+    </div>
+{% else %}
+    <form action="{% url 'create_listing' %}" method="post">
+        <table>
+            {{ form }}
+        </table>
+        {% csrf_token %}
+        <input type="submit" name="form" value="Submit">
+    </form>
+{% endif %}
+
+{% endblock body %}

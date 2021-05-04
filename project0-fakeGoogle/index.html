@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Foogle</title>
+
+        <style>
+
+        	html, body {
+        		margin: 0;
+        		padding: 0;
+        		height: 100%;
+        		font-family: arial, sans-serif;
+        	}
+
+        	.content {
+        		min-height: 100%;
+        		position: relative;
+        	}
+
+        	.top-bar {
+        		min-width: 181px;
+        		flex: 1 1 auto;
+        		display: flex;
+        		float: right;
+        		order: 1;
+        		padding-left: 30px;
+        		padding-right: 30px;
+        		padding-top: 15px;
+        		position: relative;
+        		text-align: right;
+        		align-items: center;
+        		justify-content: flex-end;
+        		margin-left: 0;
+        		margin-right: 0;
+        		white-space: nowrap;
+        		font-size: 13px;
+        	}
+
+        	.gmail-img {
+        		padding-right: 15px;
+        		flex: 0 1 auto;
+        		display: flex;
+        		line-height: normal;
+        		margin-left: 0;
+        		margin-right: 0;
+        		white-space: nowrap;
+        	}
+
+        	.img {
+        		padding-left: 15px;
+        	}
+
+            .adv {
+                text-decoration: none;
+                color: black;
+            }
+
+
+        	.gmail, .img {
+        		text-decoration: none;
+        		color: rgba(0,0,0,.87);
+        		display: inline-block;
+        		line-height: 24px;
+        		outline: none;
+        		vertical-align: middle;
+        		text-align: right;
+        		white-space: nowrap;
+        	}
+
+        	.login {
+        		padding-left: 15px;
+        	}
+
+        	form {
+        		display: inline-block;
+        		text-align: center;
+        		width: 100%;
+        	}
+
+        	#logo {
+        		width: 350px;
+        		height: 92px;
+        		padding-top: 109px;
+        	}
+
+        	#search {
+				width: 584px;
+				height: 44px;
+				border: 1px solid #dfe1e5;
+				border-radius: 24px;
+				margin-bottom: 18px;
+				padding: 0 30px 0 30px;
+			}
+
+			#search:focus {
+				outline: none;
+			}
+
+			#search:hover {
+				box-shadow: 0 1px 6px rgba(32,33,36,.28);
+			}
+
+			#button {
+				background-color: #f8f9fa;
+				border: 1px solid #f8f9fa;
+				border-radius: 4px;
+				color: #3c4043;
+				font-size: 14px;
+				margin: 11px 4px;
+				padding: 0 16px;
+				height: 36px;
+				text-align: center;
+				cursor: pointer;
+			}
+
+			#button:hover {
+				box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+				background-color: #f8f9fa;
+				border: 1px solid #dadce0;
+				color: #202124;
+			}
+
+            #button:focus {
+                outline: none;
+            }
+
+			.choose-lang {
+				padding-top: 18px;
+				text-align: center;
+				color: black;
+				font-size: 13px;
+			}
+
+			#lang {
+				text-decoration: none;
+				color: blue;
+				padding: 0 3px;
+			}
+
+			.footer {
+				position: absolute;
+				bottom: 0;
+				width: 100%;
+				height: 80px;
+				background-color: #f2f2f2;
+				border-top: 1px solid #dadce0;
+			}
+
+			#bottom1 {
+				color: rgba(0,0,0,.54);
+				padding-left: 27px;
+				font-size: 14px;
+				line-height: 40px;
+				border-bottom: 1px solid #dadce0;
+			}
+
+			#bottom2-right {
+				float: right;
+				margin-right: 30px;
+				font-size: 14px;
+				line-height: 30px;
+			}
+
+			#bottom2-left {
+				float: left;
+				font-size: 14px;
+				line-height: 30px;
+			}
+
+			#bottom2-right a,
+			#bottom2-left a {
+				text-decoration: none;
+				color: rgba(0,0,0,.54);
+				padding-left: 27px;
+			}
+
+			.adv:hover, .gmail:hover, .img:hover, #lang:hover, #bottom2-right a:hover, #bottom2-left a:hover {
+				text-decoration: underline;
+			}
+
+        </style>
+    </head>
+    <body>
+   	<div class="content">
+    	<div class="top-bar">
+    	<div class="gmail-img">	
+    		<a class="gmail" href="https://mail.google.com/mail/u/0/#inbox" title="Gmail">Fmail</a>
+    		<a class="img" href="images.html" title="Search Images" name="sbtc">Images</a>
+    	</div>
+    	<div>
+    		<a class="adv" href="advanced.html" title="Advanced Search">Advanced</a><!-- <img class="top-icon" src="apps-icon.png" style="width: 20px;"></a> -->
+    	</div>
+    	<div class="login">
+    		<a href="https://accounts.google.com/ServiceLogin/signinchooser?hl=en&passive=true&continue=https%3A%2F%2Fwww.google.com%2F&ec=GAZAAQ&flowName=GlifWebSignIn&flowEntry=ServiceLogin" title="Log In"><img class="top-icon" src="sign-icon.png" style="width: 75px;"></a>
+    	</div>
+    	</div>
+
+        <form action="https://google.com/search">
+        	<img id="logo" src="foogle.png"><br>
+			<input id="search" type="text" name="q"><br>
+			<input id="button" type="submit" value="Foogle Search" name="btnK">
+			<input id="button" type="submit" value="I'm Feeling Lucky" name="btnI">
+        </form>
+
+        <div class="choose-lang">
+        	Foogle offered in:
+        	<a id="lang" href="#">English</a>
+        	<a id="lang" href="index_ita.html">Italiano</a>
+        </div>
+
+        <div class="footer">
+        	<div id="bottom1">
+	        	<span>Everywhere</span>
+	        </div>
+
+	        <span id="bottom2-right">
+	        	<a href="#">Privacy</a>
+	        	<a href="#">Terms</a>
+	        	<a href="#">Settings</a>
+	        </span>
+	        <span id="bottom2-left">
+	        	<a href="#">Advertising</a>
+	        	<a href="https://www.linkedin.com/in/marco-ninghetto-a0b983142/" target="_blank">Business</a>
+	        	<a href="https://github.com/marco-create" target="_blank">About</a>
+	        	<a href="#">How Search Work</a>
+	        </span>
+
+        </div>
+
+    </div>
+    </body>
+</html>

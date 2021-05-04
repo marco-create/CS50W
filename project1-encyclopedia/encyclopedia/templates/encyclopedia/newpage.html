@@ -1,0 +1,66 @@
+{% extends 'encyclopedia/layout.html' %}
+
+{% block title %}
+    Create
+{% endblock title %}
+
+{% block style %}
+
+    .text-form {
+        width: 100%;
+        height: 40%;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    .submit {
+        width: 10%;
+        border: 1px solid black;
+        border-radius: 2px;
+        transition: width 2s ease;
+        margin-left: 7px;
+        margin-bottom: 20px;
+    }
+
+    .submit:hover {
+        width: 15%;
+    }
+
+    #alert {
+        position: absolute;
+        text-align: center;
+        width: 50%;
+        right: 0px;  
+    }
+
+{% endblock style %}
+
+{% block body %}
+    <h1>Create a new Entry</h1>
+    <br>
+
+    <form action="{% url 'newpage' %}" method="POST">
+        {% csrf_token %}
+        <table>
+            {{ newentry }}            
+        </table>
+        <input class="submit" type="submit">
+    </form>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Nope!</h4>
+        <p>Ah well, the name you've chose is in use already.</p>
+        <hr>
+        <p class="mb-0">You can change the title of your new entry or <a href="wiki/{{ title }}/edit">edit</a> the existing one.</p>
+      </div>
+      {% endfor %}
+    {% endif %}
+{% endblock body %}
+
+
+
+
+

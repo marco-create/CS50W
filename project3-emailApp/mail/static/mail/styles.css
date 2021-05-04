@@ -1,0 +1,119 @@
+body {
+    width: 100%;
+    padding: 2%;
+    background-color: white;
+    color: black;
+    font-size: 1rem;
+}
+/* .dark-mode {
+    background-color: black;
+    color: white;
+} */
+
+/* ----- MAIN PAGES */
+.logged-info {padding: 4px 8px;}
+
+/* ----- BUTTONS */
+.menu-btn {
+    display: flex;
+    justify-content: space-between;
+}
+.btn {
+    border: transparent;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.5s;
+    cursor: pointer;
+}
+.btn:hover {
+    color: black;
+    background-color: transparent!important;
+    border-bottom: 1px solid black;
+}
+.btn:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+/* DROPDOWN CONTACTS */
+/* Dropdown Button */
+.dropbtn {
+    background-color: #3498DB;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #ddd}
+  
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+  .show {display:block;}
+
+/*  ----- TEXT FORMS */
+textarea {min-height: 400px;}
+.form-control:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+/* ----- MESSAGES (class defined in JS) */
+article {border: transparent;}
+article:hover {background-color: rgba(245, 245, 245, 0.795);}
+.article-wrapper {padding: 1%;}
+.read {background-color: grey;}
+.read:hover {background-color: rgba(128, 128, 128, 0.795);}
+.archive-btn {margin: 2%;}
+.article-wrap-footer {
+    display: flex;
+    justify-content: space-between;
+}
+.article-footer-span {
+    font-style: italic;
+    font-size: small;
+}
+
+/* ----- SINGLE MESSAGE STYLE */
+.info-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contain-sender {
+  font-weight: bold;
+  margin: 0;
+}
+.contain-time {
+  font-size: small;
+  margin: 0;
+}
+.contain-recipients {
+  font-size: smaller;
+}

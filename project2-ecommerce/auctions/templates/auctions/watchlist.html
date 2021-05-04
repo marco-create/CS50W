@@ -1,0 +1,67 @@
+{% extends 'auctions/layout.html' %}
+
+{% block title %}
+My watchlist
+{% endblock title %}
+
+{% block body %}
+<h2>Watchlist</h2>
+
+{% if not_an_user %}
+    <div class="nouser-alert-wrap">
+        <div class="nouser-alert-text">
+            <span><a href="{% url 'register' %}">Sign in</a> or <a href="{% url 'login' %}">Log in</a> to create a watchlist!</span>
+        </div>
+    </div>
+    
+{% else %}
+
+    <div class="container">
+        <table>
+        {% for listing in listings %}
+            <a href="{% url 'show_listing' listing.id %}" style="text-decoration: none; color: black;">
+                <article class="listing-container">
+
+                    <div class="listing-bg-img-wrap">
+                        {% load static %}
+                        <div class="listing-bg-img" style="background-image: url({% if listing.image_url %}{{ listing.image_url }}{% else %}{% static 'auctions/pics/no-image.jpg' %}{% endif %});"></div>
+                    </div>
+
+                    <div class="listing-text">
+                        <div style="text-transform: uppercase; font-weight: bolder; font-style: oblique;">{{ listing.title }}</div>
+                        <div>
+                            <div>Category: {{ listing.get_category_display }}</div>
+                        </div>
+                        <div>
+                            <div>Current price: {% if listing.current_bid %}{{ listing.current_bid }}{% else %}{{ listing.starting_bid }}{% endif %} coins</div>
+                        </div>
+                        <div class="listing-description">
+                            <div>Description:</div>
+                            <div>{{ listing.description }}</div>
+                        </div>
+                        <div class="listing-footnotes">
+                            <div>
+                                <div>Created on {{ listing.date }} by {{ listing.user }}</div>
+
+                                <div>Closed auction: {{ listing.closed }}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div><form action="{% url 'remove_from_watchlist' listing.id %} " method="post">
+                            {% csrf_token %}
+                            <input class="remove-button" type="submit" value="Remove from watchlist" name="removing">
+                        </form></div>
+                    </div>
+                </article>
+            </a>        
+
+        {% empty %}
+            <p>No saved</p>
+        {% endfor %}
+        </table>
+    </div>
+{% endif %}
+
+{% endblock body %}

@@ -1,0 +1,39 @@
+{% extends 'auctions/layout.html' %}
+
+{% block body %}
+<div class="container">
+    <!-- <h1>All auctions!</h1> -->
+    {% for listing in auctions %}
+    <a class="listing-container-link" href="{% url 'show_listing' listing.id %}" style="text-decoration: none; color: black;">
+        <article class="listing-container">
+
+            <div class="listing-bg-img-wrap">
+                {% load static %}
+                <div class="listing-bg-img" style="background-image: url({% if listing.image_url %}{{ listing.image_url }}{% else %}{% static 'auctions/pics/no-image.jpg' %}{% endif %});"></div>
+            </div>
+
+            <div class="listing-text">
+                <div style="text-transform: uppercase; font-weight: bolder; font-style: oblique;">{{ listing.title }}</div>
+                <div>
+                    <div>Category: {{ listing.get_category_display }}</div>
+                </div>
+                <div>
+                    <div>Current price: {% if listing.current_bid %}{{ listing.current_bid }}{% else %}{{ listing.starting_bid }}{% endif %} coins</div>
+                </div>
+                <div class="listing-description">
+                    <div>Description:</div>
+                    <div>{{ listing.description }}</div>
+                </div>
+            </div>
+            <div class="listing-footnotes" style="bottom: 0;">
+                <div>
+                    <div>Created on {{ listing.date }} by {{ listing.user }}</div>
+    
+                    <div>Closed auction: {{ listing.closed }}</div>
+                </div>
+            </div>
+        </article>
+    </a>
+    {% endfor %}
+</div>
+{% endblock body %}

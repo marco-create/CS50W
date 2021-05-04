@@ -1,0 +1,72 @@
+{% extends "mail/layout.html" %}
+{% load static %}
+
+{% block body %}
+<div class="wrap-menu">
+    
+    <div class="menu-btn">
+        <div class="menu-btn-left">
+            <button class="btn" id="inbox">Inbox</button>
+            <button class="btn" id="compose">Compose</button>
+            <button class="btn" id="sent">Sent</button>
+            <button class="btn" id="archived">Archived</button>
+            <a class="btn" href="{% url 'logout' %}">Log Out</a>
+        </div>
+        <div class="menu-btn-right">
+                <div class="logged-info">
+                    <h2>{{ request.user.email }}</h2>
+                </div>
+                <!-- <button class="btn" onclick="darkMode()">Dark Mode</button> -->
+            </div>
+        </div>  
+    </div>
+    <hr>
+
+    <div id="emails-view">
+    </div>
+    <div id="compose-view">
+        <h3>New Email</h3>
+
+        <label for="users">Contacts:</label>
+        <select name="users" id="users">
+            <option selected disabled>Choose recipients</option>
+            {% for contact in users %}
+            <option value="{{ contact }}">{{ contact }}</option>
+            {% endfor %}
+        </select>
+
+        <form id="compose-form">
+            <div class="form-group">
+                From: <input disabled class="form-control" value="{{ request.user.email }}">
+            </div>
+            <div class="form-group">
+                To: <input id="compose-recipients" class="form-control">
+            </div>
+            <div class="form-group">
+                <input class="form-control" id="compose-subject" placeholder="Subject">
+            </div>
+            <textarea class="form-control" id="compose-body" placeholder="Body"></textarea>
+            <input id="submit-email" type="submit" class="btn btn-send"/>
+        </form>
+    </div>
+    <div id="load-email">
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'mail/inbox.js' %}"></script>
+
+    <!-- <script>
+    function contactSelect() {
+        var x = document.getElementById('users').value;
+        console.log(x); 
+        return x;
+    }
+    </script> -->
+    <!-- <script>
+        function darkMode() {
+            var element = document.body;
+            element.classList.toggle('dark-mode');
+        }
+    </script> -->
+{% endblock %}

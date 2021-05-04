@@ -1,0 +1,68 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block style %}
+
+    h1 {
+        text-align: left;
+        margin-bottom: 20px;
+    }
+
+    .entries {
+        width: 80%;
+        margin-top: 10px;
+        background-color: #f0f0f0;
+        border: 1px solid black;
+        border-radius: 2px;
+        transition: width 2s ease;
+    }
+
+    .entries:hover {
+        width: 100%;
+    }
+    .btn {
+        color: black;
+        width: 100%;
+        background-color: #f0f0f0;
+        border: 0px solid;
+        border-radius: 2px;
+    }
+
+    .btn:hover {
+        color: black;
+        background-color: #f0f0f0;
+        border-color: #f0f0f0;
+    }
+
+    .btn:focus {
+        box-shadow: none;
+    }
+
+    .btn.btn-primary:active,
+    .btn.btn-primary:focus {
+        color: black;
+        background-color: #f0f0f0 !important;
+        box-shadow: none !important;
+        border-color: #f0f0f0;
+        border: 1px solid;
+        border-radius: 2px;
+    }
+
+{% endblock style %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+    {% if found %}
+    <h1>Did you mean...</h1>
+    {% else %}
+    <h1>All Pages</h1>
+    {% endif %}
+    {% for entry in entries %}
+        <div class="entries"><a class="btn btn-primary" href='/wiki/{{ entry }}'>{{ entry }}</a></div>
+
+
+    {% endfor %}
+
+{% endblock %}

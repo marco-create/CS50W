@@ -1,0 +1,34 @@
+{% extends 'encyclopedia/layout.html' %}
+
+{% block title %}
+    Edit
+{% endblock title %}
+
+{% block style %}
+    .text-form {width: 80%; height: 40%;}
+
+    table {width: 90%;}
+
+    .submit {
+        width: 10%;
+        border: 1px solid black;
+        border-radius: 2px;
+        transition: width 2s ease;
+        margin-left: 7px;
+    }
+
+    .submit:hover {
+        width: 15%;
+    }
+{% endblock style %}
+
+{% block body %}
+    <h1>Editing {{ entry_title }}</h1>
+    <form action="{% url 'edit' entry=entry_title %}" method="POST">
+        {% csrf_token %}
+        <table>
+            {{ form }}            
+        </table>
+        <input class="submit" type="submit">
+    </form>
+{% endblock body %}

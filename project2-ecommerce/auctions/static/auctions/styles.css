@@ -1,0 +1,206 @@
+body {
+    padding: 10px;
+    font-family: 'Amatic SC', cursive;
+    font-family: 'Delius', cursive;
+    font-weight: bold;
+    /* background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; */
+}
+
+body a {
+    color: black;
+}
+
+/* --- STYLING INDEX NAVBAR*/
+.navbar-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+#logo-text-link {
+    border-bottom: 1px solid black;
+    color: black;
+    margin: 0 2% 0 0;
+    padding: .5rem 1rem .5rem 0;
+}
+
+.nav-link {
+    color: black;
+}
+
+.nav-link:hover {
+    border-bottom: 1px solid black;
+}
+
+/*  --- STYLING INDEX CONTENT */
+.container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-column-gap: 2rem;
+    padding: 2%;
+    width: 90%;
+}
+
+.listing-container-link {
+    margin: 10px;
+}
+
+.listing-container {
+    align-self: center;
+    justify-self: center;
+    min-height: 100%;
+    margin: 2%;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(252, 1, 1, 0.1);
+    transition: all .1s ease-in;
+    padding: 5%;
+    border: none;
+    border-radius: 10px;
+}
+
+.listing-container:hover {
+    box-shadow: 0 4px 10px rgba(252, 1, 1, 0.5);
+}
+
+.listing-text > div {
+    padding: .5rem
+}
+
+.listing-bg-img {
+    padding-bottom: 30%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* background-attachment: fixed; */
+}
+
+.listing-description {
+    border: .1rem solid black;
+    border-radius: 10%;
+}
+
+.listing-footnotes {
+    display: flex;
+    justify-content: flex-end;
+    font-size: small;
+    font-style: italic;
+}
+
+/* --- STYLING SHOW-LISTING CONTENT */
+.bid-wrapper {
+    margin-top: 2rem;
+    border-top: .2rem solid black;
+}
+
+.bid-wrapper > h3 {
+    margin-top: 2rem;
+}
+
+.comment-wrapper {
+    margin-top: 2rem;
+    border-top: .2rem solid black;
+}
+
+.comment-wrapper > h3 {
+    margin-top: 2rem;
+}
+
+.new-comment-wrap {
+    border-bottom: .08rem dashed black;
+    border-radius: 2%;
+    margin: .2rem;
+}
+
+.comment-text span:last-child {
+    margin-left: 1rem;
+    font-size: small;
+    font-style: italic;
+}
+
+#comment {
+    width: 100%;
+    margin-bottom: .5rem;
+}
+
+.floating-watchlist {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.floating-close {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 7%;
+    right: 10%;
+    text-align: center;
+}
+
+/* --- STYLING WATCHLIST CONTENT */
+.remove-button {
+    margin: 1rem;
+}
+
+/* --- STYLING CATEGORY CONTENT */
+.cat-btn-wrapper {
+    display: grid;
+    grid-gap: 10% 5%;
+    justify-content: center;
+}
+
+.btn-primary, .btn-secondary {
+    background-color: #efefef;
+    color: black;
+    border: .1px solid black;
+    border-radius: 20%;
+    height: 50px;
+}
+
+.btn-primary:hover, .btn-secondary:hover {
+    background-color: black;
+    color: white;
+    border: .1px solid black;
+}
+.btn-primary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled):active {
+    background-color: black;
+    color: white;
+    border: .1px solid black;
+}
+.btn-primary:focus, .btn-secondary:focus {
+    background-color: black;
+    color: white;
+    border: .1px solid black;
+}
+
+/* --- STYLING ADDITIONAL FEATURES */
+input[type=submit], .go-home-btn {
+    border:  .1px solid black;
+    border-radius: 20%;
+}
+
+input[type=submit]:hover, .go-home-btn:hover {
+    color: white;
+    background-color: black;
+    border-color: #0062cc;
+    
+}
+
+.go-home-btn a {
+    text-decoration: none;
+    color: black;
+}
+
+.go-home-btn a:hover {
+    color: white;
+    text-decoration: none;
+}

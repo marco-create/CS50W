@@ -1,0 +1,83 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="{% static 'encyclopedia/styles.css' %}" rel="stylesheet">
+        <style>{% block style %}{% endblock style %}
+
+            .row {
+                margin-right: 0;
+                margin-left: 0;
+            }
+
+            .search {
+                border: 0px solid;
+                border-radius: 0px;
+                transition: 2s ease;
+            }
+
+            .search:hover {
+                width: 110%;
+
+            }
+
+            .search:focus {
+                outline: none;
+                border: 0px solid;
+                border-radius: 5px;
+            }
+
+            #sidebar a {
+                text-decoration: none;
+                color: black;
+            }
+
+            #sidebar a:hover {
+                text-decoration: none;
+                color: black;
+            }
+
+            #sidebar div {
+                width: 100%;
+                border-bottom: 1px solid white;
+                border-image: linear-gradient( to left, white, black) 1 3%;
+            }
+
+            #sidebar div:hover {
+                border-image: linear-gradient( to left, white, black) 1 20%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="row">
+            <div id="sidebar" class="sidebar col-lg-2 col-md-3">
+                <img src="{% static 'encyclopedia/wikigif.gif' %}" alt="Wiki Logo" style="width: 100%;">
+                {% comment %} <img src="https://user-images.githubusercontent.com/53913990/104816925-89da9980-581e-11eb-8737-6609c5ea0873.gif" alt="Wiki Logo" style="width: 100%;"> {% endcomment %}
+                <p style="border-bottom: 2px solid black; width: 100%; margin-bottom: 1px;"></p>
+                <form id="search-bar" action="{% url 'search' %}" method="GET">
+                    <input class="search" type="text" name="q" placeholder="Search Encyclopedia">
+                </form>
+                <div class="link">
+                    <a href="{% url 'index' %}">Home</a>
+                </div>
+                <div class="link">
+                    <a href="{% url 'newpage' %}">Create New Page</a>
+                </div>
+                <div class="link">
+                    <a href="{% url 'randompage' %}">Random Page</a>
+                </div>
+                {% block nav %}
+                {% endblock %}
+            </div>
+            <div id="page-block" class="main col-lg-10 col-md-9">
+                {% block body %}
+                {% endblock body %}
+            </div>
+        </div>
+
+    </body>
+</html>

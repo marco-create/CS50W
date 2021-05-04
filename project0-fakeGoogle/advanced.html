@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Foogle Advanced Search</title>
+	<style>
+		
+		html, body {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			width: 100%;
+		}
+
+    	.content {
+    		min-height: 100%;
+    		position: relative;
+    	}
+
+    	.top-bar {
+    		background-color: #f1f1f1;
+    		flex: 1 1 auto;
+    		display: flex;
+    		width: 100%;
+    		height: 60px;
+    		order: 1;
+    		position: relative;
+    		align-items: center;
+    		margin-left: 0;
+    		white-space: nowrap;
+    		font-size: 13px;
+    	}
+
+		.right-menu {
+			min-width: 181px;
+			flex: 1 1 auto;
+			display: flex;
+			float: right;
+			order: 1;
+			padding-left: 30px;
+			padding-right: 30px;
+			position: relative;
+			text-align: right;
+			align-items: center;
+			justify-content: flex-end;
+			margin-left: 0;
+			margin-right: 0;
+			white-space: nowrap;
+			font-size: 13px;
+		}
+
+		.home {
+			color: black;
+			text-decoration: none;
+			font-family: arial, sans-serif;
+			font-size: 13px;
+		}
+
+    	.login {
+    		padding-left: 15px;
+    	}
+
+    	.appbar {
+    		color: #d93025;
+    		font-size: 20px;
+    		margin: 25px 35px;
+    		font-family: arial, sans-serif;
+    	}
+
+    	.form-section {
+    		margin: 40px 2% 0 45px;
+    		min-width: 200px;
+    		max-width: 1140px;
+    		display: block;
+    	}
+
+    	#titles {
+    		
+    		font-family: arial, sans-serif;
+    	}
+
+    	.left-title {
+    		float: left;
+    		display: inline-block;
+    		min-width: 167px;
+    		width: 16%;
+    		font-size: 16px;
+    	}
+
+    	.middle {
+    		float: left;
+    		display: inline-block;
+    		min-width: 167px;
+    		min-height: 41px;
+    		vertical-align: middle;
+    		width: 50%;
+    	}
+
+    	.right-title {
+    		float: right;
+    		display: inline-block;
+    		width: 33%;
+    		font-size: 13px;
+    		font-weight: 700;
+    		color: #777;
+    		padding-left: 5px;
+    		vertical-align: middle;
+    	}
+
+		.input-box {
+			clear: both;
+			width: 100%;
+		}
+
+		.left-div {
+			clear: left;
+			float: left;
+			display: inline-block;
+			min-width: 167px;
+			width: 16%;
+		    height: 42px;
+		    color: #222;
+		    font-size: 13px;
+		    line-height: 16px;
+		    vertical-align: middle;
+		}
+
+		.left-txt{
+			height: 30px;
+			display: table-cell;
+			vertical-align: middle;
+		}
+
+		.middle {
+			float: left;
+			display: inline-block;
+			min-width: 167px;
+			min-height: 41px;
+			vertical-align: middle;
+			width: 50%;
+		}
+
+		.middle-txt {
+			padding-right: 16px;
+		}
+
+		.inputtext {
+			width: 100%;
+			border-radius: 1px;
+			border: 1px solid #d9d9d9;
+			border-top: 1px solid #c0c0c0;
+		    font-size: 13px;
+		    height: 25px;
+		    padding: 1px 8px;
+		}
+
+		.inputtext:focus {
+			outline: none;
+		}
+
+		.right-div {
+			float: left;
+			display: inline-block;
+			width: 32%;
+			margin: 0 0 8px 1%;
+			color: #555;
+			font-size: 11px;
+		}
+
+		.right-txt {
+			height: 30px;
+			display: table-cell;
+			vertical-align: middle;
+		}
+
+		.right-span {
+			color: #666;
+			font-family: monospace;
+			font-size: 11px;
+			white-space: pre;
+		}
+
+		.middle-button {
+			margin: 10px;
+			width: 120px;
+			height: 30px;
+			background-color: #4d90fe;
+			border: 1px solid #3079ed;
+			color: #fff;
+			border-radius: 2px;
+			font-size: 11px;
+			font-weight: bold;
+			text-align: center;
+			outline: none;
+		}
+
+		.middle-button:hover {
+			background-image: linear-gradient(#4d90fe,#4787ed);
+		}
+
+    	.footer {
+    		font-family: arial, sans-serif;
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			height: 80px;
+			background-color: #f2f2f2;
+			border-top: 1px solid #dadce0;
+		}
+
+		#bottom1 {
+			color: rgba(0,0,0,.54);
+			padding-left: 27px;
+			font-size: 14px;
+			line-height: 40px;
+			border-bottom: 1px solid #dadce0;
+		}
+
+		#bottom2-left {
+			float: left;
+			font-size: 14px;
+			line-height: 30px;
+		}
+
+		#bottom2-left a {
+			text-decoration: none;
+			color: rgba(0,0,0,.54);
+			padding-left: 27px;
+		}
+
+
+	</style>
+</head>
+<body>
+   	<div class="content">
+    	<div class="top-bar">
+    		<img src="foogle_gray.png">
+    		<div class="right-menu">
+		    	<div>
+		    		<a class="home" href="index.html" title="Back to Home">Home</a><!-- <img class="top-icon" src="apps-icon.png" style="width: 20px;"></a> -->
+		    	</div>
+		    	<div class="login">
+		    		<a href="https://accounts.google.com/ServiceLogin/signinchooser?hl=en&passive=true&continue=https%3A%2F%2Fwww.google.com%2F&ec=GAZAAQ&flowName=GlifWebSignIn&flowEntry=ServiceLogin" title="Log In"><img class="top-icon" src="sign-icon.png" style="width: 75px;"></a>
+		    	</div>
+		    </div>	
+    	</div>
+
+    	<div class="appbar">
+    		<label style="margin-left: 10px;">Advanced Search</label>
+    	</div>
+    	<div style="border-bottom: 1px solid #ebebeb"></div>
+
+    	<div class="form-section">
+    		<form id="titles" action="https://google.com/search">
+    			<div class="left-title">Find pages with...</div>
+    			<div class="middle"></div>
+    			<div class="right-title">To do this in search box.</div>
+
+    			<div class="input-box">
+		    		<div class="left-div">
+		    			<div class="left-txt">
+		    				<label class="lab-left">all these words:</label>
+		    			</div>
+		    		</div>
+
+		    		<div class="middle">
+		    			<div class="middle-txt">
+		    				<input class="inputtext" type="text" name="as_q">
+		    			</div>
+		    		</div>
+
+		    		<div class="right-div">
+		    			<div class="right-txt">
+		    				Type the important words:
+		    				<span class="right-span">CS50W baz foo</span>
+		    			</div>
+		    		</div>
+
+
+		    		<div class="left-div">
+		    			<div class="left-txt">
+		    				<label class="lab-left">this exact word or phrase:</label>
+		    			</div>
+		    		</div>
+
+		    		<div class="middle">
+		    			<div class="middle-txt">
+		    				<input class="inputtext" type="text" name="as_epq">
+		    			</div>
+		    		</div>
+
+		    		<div class="right-div">
+		    			<div class="right-txt">
+		    				Put exact words in quotes:
+		    				<span class="right-span">"hello word"</span>
+		    			</div>
+		    		</div>
+
+
+		    		<div class="left-div">
+		    			<div class="left-txt">
+		    				<label class="lab-left">any of these words:</label>
+		    			</div>
+		    		</div>
+
+		    		<div class="middle">
+		    			<div class="middle-txt">
+		    				<input class="inputtext" type="text" name="as_oq">
+		    			</div>
+		    		</div>
+
+		    		<div class="right-div">
+		    			<div class="right-txt">
+		    				Type OR between all the words you want:
+		    				<span class="right-span">foobar OR barfoo</span>
+		    			</div>
+		    		</div>
+
+
+		    		<div class="left-div">
+		    			<div class="left-txt">
+		    				<label class="lab-left">none of these words:</label>
+		    			</div>
+		    		</div>
+
+		    		<div class="middle">
+		    			<div class="middle-txt">
+		    				<input class="inputtext" type="text" name="as_eq">
+		    			</div>
+		    		</div>
+
+		    		<div class="right-div">
+		    			<div class="right-txt">
+		    				Put a minus sign just before words tha you don't want:<br>
+		    				<span class="right-span">-"pizza with ananas"</span>
+		    			</div>
+		    		</div>
+
+		    		<div class="middle" style="text-align: right;">
+		    			<input class="middle-button" type="submit" value="Advanced Search">
+		    		</div>
+		    	</div>
+    		</form>
+    	</div>
+
+    	
+
+    	<div class="footer">
+        	<div id="bottom1">
+	        	<span>Everywhere</span>
+	        </div>
+
+	        <span id="bottom2-left">
+	        	<a href="#">Help</a>
+	        	<a href="#">Privacy</a>
+	        	<a href="#">Terms</a>
+	        </span>
+        </div>
+
+    </div>
+</body>
+</html>

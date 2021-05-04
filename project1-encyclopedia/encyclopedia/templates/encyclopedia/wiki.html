@@ -1,0 +1,48 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block style %}
+
+    #wikiurls {
+        color: blue;
+    }
+
+    .btn.btn-primary {
+        width: 10%;
+        color: black;
+        background-color: #f0f0f0;
+        border: 1px solid black;
+        border-radius: 2px;
+        transition: width 2s ease;        
+    }
+
+    .btn.btn-primary:hover {
+        width: 15%;
+        color: black;
+        background-color: #f0f0f0;
+        border-color: black;
+    }
+
+    .btn:focus {
+        box-shadow: none;
+    }
+
+    .btn.btn-primary:active,
+    .btn.btn-primary:focus {
+        color: black;
+        background-color: #f0f0f0 !important;
+        box-shadow: none !important;
+        border-color: black;
+        border: 1px solid;
+        border-radius: 2px;
+    }
+{% endblock style %}
+
+{% block title %}
+    {{ entry_title }}
+{% endblock title %}
+
+{% block body %}
+    {{ entry_body|safe }}
+    <a class="btn btn-primary" href="{{ entry_title }}/edit" role="button">Edit</a>
+        
+{% endblock body %}
