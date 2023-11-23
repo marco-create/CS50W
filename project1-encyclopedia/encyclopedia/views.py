@@ -6,7 +6,7 @@ from django.urls import reverse
 from . import util
 from markdown2 import Markdown
 import re
-import random
+import secrets
 
 md = Markdown()
 
@@ -99,7 +99,7 @@ def randompage(request):
     ''' Return a random wiki page.
     '''
     entries = util.list_entries()
-    random_entry = random.choice(entries)
+    random_entry = secrets.SystemRandom().choice(entries)
     return HttpResponseRedirect(reverse("wiki", kwargs={"entry": random_entry}))
 
 def edit(request, entry):
